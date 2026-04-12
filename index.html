@@ -392,18 +392,17 @@
   .profile-section { display: flex; gap: 5rem; align-items: flex-start; }
   .profile-photo {
     flex-shrink: 0;
-    width: 160px;
-    height: 200px;
-    background: var(--paper-warm);
+    width: 200px;
+    height: 240px;
+    overflow: hidden;
     border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
-  .profile-photo-placeholder {
-    font-family: var(--serif);
-    font-size: 3rem;
-    color: var(--accent-light);
+  .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
   .profile-name {
     font-family: var(--serif);
@@ -697,7 +696,7 @@
     <p class="section-label">プロフィール</p>
     <div class="profile-section">
       <div class="profile-photo">
-        <span class="profile-photo-placeholder">遼</span>
+        <img src="10023_川口遼_3_カウンセラー_.jpg" alt="川口遼">
       </div>
       <div>
         <p class="profile-name">川口 遼</p>
