@@ -34,7 +34,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -69,7 +68,6 @@
   }
   .nav-links a:hover { color: var(--ink); }
 
-  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -94,10 +92,7 @@
     background: linear-gradient(to bottom, transparent, var(--accent-light), transparent);
     opacity: 0.4;
   }
-  .hero-content {
-    position: relative;
-    max-width: 780px;
-  }
+  .hero-content { position: relative; max-width: 780px; }
   .hero-eyebrow {
     font-size: 0.7rem;
     letter-spacing: 0.25em;
@@ -124,10 +119,7 @@
     margin-bottom: 2.5rem;
     color: var(--ink);
   }
-  .hero-title em {
-    font-style: italic;
-    color: var(--accent);
-  }
+  .hero-title em { font-style: italic; color: var(--accent); }
   .hero-sub {
     font-size: 1rem;
     color: var(--ink-mid);
@@ -153,7 +145,6 @@
   .hero-cta-arrow { font-size: 1rem; transition: transform 0.2s; }
   .hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
 
-  /* SCROLL INDICATOR */
   .scroll-hint {
     position: absolute;
     bottom: 2.5rem;
@@ -179,7 +170,6 @@
     100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
   }
 
-  /* SECTIONS */
   section {
     padding: 7rem 4rem;
     max-width: 1100px;
@@ -217,7 +207,6 @@
     margin: 0 4rem;
   }
 
-  /* WHO */
   .who-section { padding-bottom: 4rem; }
   .who-lead {
     font-size: 1.05rem;
@@ -266,7 +255,6 @@
     line-height: 1.8;
   }
 
-  /* HOW */
   .how-section { padding-top: 7rem; }
   .step-list { margin-top: 3rem; }
   .step {
@@ -275,7 +263,6 @@
     gap: 0;
     padding: 2.5rem 0;
     border-bottom: 1px solid var(--border);
-    transition: background 0.2s;
   }
   .step:first-child { border-top: 1px solid var(--border); }
   .step-num {
@@ -298,9 +285,10 @@
     line-height: 1.9;
   }
 
-  /* DIFF */
+  /* ===== DIFF section — 書き直し ===== */
   .diff-section { background: var(--paper-warm); padding: 7rem 4rem; max-width: 100%; }
-  .diff-inner { max-width: 680px; margin: 0 auto; }
+  .diff-inner { max-width: 740px; margin: 0 auto; }
+
   .diff-body {
     font-size: 1rem;
     color: var(--ink-mid);
@@ -308,6 +296,84 @@
     margin-bottom: 1.5rem;
   }
   .diff-body strong { color: var(--ink); font-weight: 400; }
+
+  /* 比較グリッド */
+  .diff-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 3rem 0;
+  }
+  .diff-compare-col {
+    background: var(--paper);
+    padding: 2.25rem 2rem;
+  }
+  .diff-compare-col.is-this {
+    background: rgba(139,111,71,0.06);
+  }
+  .diff-compare-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .diff-compare-tag .dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .diff-compare-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    line-height: 1.45;
+  }
+  .diff-compare-desc {
+    font-size: 0.85rem;
+    color: var(--ink-mid);
+    line-height: 2;
+  }
+  .diff-compare-note {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    line-height: 1.85;
+  }
+
+  /* 結果ブロック */
+  .diff-result {
+    margin: 2.5rem 0;
+    padding: 2rem 2.5rem;
+    border-left: 2px solid var(--accent);
+    background: rgba(139,111,71,0.04);
+  }
+  .diff-result-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .diff-result p {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.75;
+    color: var(--ink);
+  }
+
   .diff-quote {
     border-left: 2px solid var(--accent);
     padding: 1.5rem 2rem;
@@ -334,8 +400,8 @@
     padding: 0.4rem 1.1rem;
     border-radius: 999px;
   }
+  /* ===== /DIFF ===== */
 
-  /* PLANS */
   .plans-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -388,7 +454,6 @@
     line-height: 1.85;
   }
 
-  /* PROFILE */
   .profile-section { display: flex; gap: 5rem; align-items: flex-start; }
   .profile-photo {
     flex-shrink: 0;
@@ -433,7 +498,6 @@
     color: var(--ink);
   }
 
-  /* CTA */
   .cta-section {
     text-align: center;
     padding: 8rem 4rem;
@@ -472,7 +536,6 @@
     border-color: rgba(245,242,237,0.6);
   }
 
-  /* FOOTER */
   footer {
     display: flex;
     justify-content: space-between;
@@ -487,7 +550,6 @@
     color: rgba(245,242,237,0.35);
   }
 
-  /* FADE IN */
   .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -498,7 +560,6 @@
     transform: translateY(0);
   }
 
-  /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 1.25rem 1.5rem; }
     .nav-links { display: none; }
@@ -506,6 +567,7 @@
     .hero { padding: 0 1.5rem 5rem; }
     .hero-title { font-size: 2.8rem; }
     .persona-grid { grid-template-columns: 1fr; }
+    .diff-compare { grid-template-columns: 1fr; }
     .plans-grid { grid-template-columns: 1fr; }
     .profile-section { flex-direction: column; gap: 2rem; }
     .divider { margin: 0 1.5rem; }
@@ -624,28 +686,59 @@
   </div>
 </section>
 
-<!-- DIFF -->
+<!-- DIFF（書き直し） -->
 <div class="diff-section">
   <div class="diff-inner fade-in">
     <p class="section-label">セッションの特徴</p>
-    <h2>一歩踏み込む、<br>という違い</h2>
+    <h2>納得感が、<br>桁違いになる理由</h2>
+
     <p class="diff-body">
-      一般的なコーチングは、問いかけることで相手の思考を引き出す。<br>
-      このセッションは、もう一歩踏み込む。
+      コーチングとは本来、<strong>本人の中に答えがあることを前提に、問いによって思考を引き出す</strong>コミュニケーション手法のことを指す。
+      単発の行動促進や思考整理には有効だが、転職・独立・人生の転換点といった重要な意思決定においては、それだけでは納得感が生まれにくい。
     </p>
     <p class="diff-body">
-      あなたの言葉から仮説をつくり、<strong>「こういうことじゃないですか？」と投げかける。</strong><br>
-      本人が言語化できていなかった何かが、その瞬間に立ち現れる。
+      なぜか。それは、<strong>答えを出す「地盤」が整っていないまま、答えを引き出そうとしているから</strong>だ。
     </p>
+
+    <div class="diff-compare">
+      <div class="diff-compare-col">
+        <p class="diff-compare-tag">一般的なコーチング</p>
+        <p class="diff-compare-title">問いで、答えを引き出す</p>
+        <p class="diff-compare-desc">
+          「何がしたいですか？」「どうなりたいですか？」——丁寧な問いかけで、本人の思考を言語化していく。即効性があり、短期的な行動変容に強い。
+        </p>
+        <p class="diff-compare-note">
+          ただし、自分の特性・動機の構造が見えていない状態では、出てきた「答え」への納得感が薄くなりやすい。重要な意思決定の場面で、迷いが残る。
+        </p>
+      </div>
+      <div class="diff-compare-col is-this">
+        <p class="diff-compare-tag"><span class="dot"></span>このセッション</p>
+        <p class="diff-compare-title">地盤を作ってから、<br>答えを見つける</p>
+        <p class="diff-compare-desc">
+          コーチングの問いを活かしながら、もう一歩踏み込む。幼少期・家族・転機・失敗——人生をナラティブに遡り、本人も言語化できていなかった特性・動機の構造を体系的に整理する。
+        </p>
+        <p class="diff-compare-note">
+          地盤の上から出てきた意思決定だから、納得感が桁違いになる。その後の継続的な伴走も、質がまったく変わる。
+        </p>
+      </div>
+    </div>
+
+    <div class="diff-result">
+      <p class="diff-result-label">Result</p>
+      <p>自分の特性と本質的なwillを体系的に理解した人間は、<br>必ず自分の中に課題を見つけ、前へ進める。</p>
+    </div>
+
     <div class="diff-quote">
       <p>「そう、それが言いたかったんです」——<br>この瞬間が、セッションの中で<br>生み出されていく。</p>
     </div>
+
     <p class="diff-body">
       キャリアコーチング市場の前線で、3,000名以上と向き合ってきた実践経験。<br>
       担当者が変わらず、<strong>最初から最後まで同じ一人が伴走します。</strong>
     </p>
     <div class="diff-pills">
-      <span class="diff-pill">深い自己理解</span>
+      <span class="diff-pill">人生全体を素材にする</span>
+      <span class="diff-pill">地盤を作る自己理解</span>
       <span class="diff-pill">仮説介入スタイル</span>
       <span class="diff-pill">一貫した担当</span>
       <span class="diff-pill">3,000名超の実践経験</span>
