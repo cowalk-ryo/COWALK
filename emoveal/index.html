@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMOVEAL — 葛藤と向き合い、人生を動かす</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1814;
+    --ink-mid: #4a4540;
+    --ink-light: #8a8480;
+    --paper: #f5f2ed;
+    --paper-warm: #ede9e2;
+    --accent: #8b6f47;
+    --accent-light: #c4a882;
+    --border: rgba(26,24,20,0.12);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Noto Sans JP', sans-serif;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background: rgba(245,242,237,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 4rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(196,168,130,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(139,111,71,0.08) 0%, transparent 50%);
+  }
+  .hero-line-deco {
+    position: absolute;
+    top: 15%;
+    right: 8%;
+    width: 1px;
+    height: 40%;
+    background: linear-gradient(to bottom, transparent, var(--accent-light), transparent);
+    opacity: 0.4;
+  }
+  .hero-content { position: relative; max-width: 780px; }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5rem;
+    color: var(--ink);
+  }
+  .hero-title em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--ink-mid);
+    line-height: 2;
+    max-width: 440px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .hero-cta:hover { background: var(--ink-mid); transform: translateY(-1px); }
+  .hero-cta-arrow { font-size: 1rem; transition: transform 0.2s; }
+  .hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--ink-light);
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 3rem;
+    background: linear-gradient(to bottom, var(--ink-light), transparent);
+    animation: scrollDown 1.8s ease-in-out infinite;
+  }
+  @keyframes scrollDown {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+  }
+
+  section {
+    padding: 7rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-inner { max-width: 680px; }
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+    letter-spacing: -0.01em;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 4rem;
+  }
+
+  .who-section { padding-bottom: 4rem; }
+  .who-lead {
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+    line-height: 2;
+    margin-bottom: 2.5rem;
+  }
+  .who-quote {
+    border-left: 2px solid var(--accent);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+    background: rgba(139,111,71,0.04);
+  }
+  .who-quote p {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .persona-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 3rem;
+    border: 1px solid var(--border);
+  }
+  .persona-card {
+    background: var(--paper);
+    padding: 2rem 1.75rem;
+    transition: background 0.2s;
+  }
+  .persona-card:hover { background: var(--paper-warm); }
+  .persona-num {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--accent-light);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .persona-text {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+  }
+
+  .how-section { padding-top: 7rem; }
+  .step-list { margin-top: 3rem; }
+  .step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step:first-child { border-top: 1px solid var(--border); }
+  .step-num {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--accent-light);
+    padding-top: 0.2rem;
+  }
+  .step-body h4 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+  .step-body p {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.9;
+  }
+
+  .diff-section { background: var(--paper-warm); padding: 7rem 4rem; max-width: 100%; }
+  .diff-inner { max-width: 740px; margin: 0 auto; }
+
+  .diff-body {
+    font-size: 1rem;
+    color: var(--ink-mid);
+    line-height: 2.1;
+    margin-bottom: 1.5rem;
+  }
+  .diff-body strong { color: var(--ink); font-weight: 400; }
+
+  .diff-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 3rem 0;
+  }
+  .diff-compare-col {
+    background: var(--paper);
+    padding: 2.25rem 2rem;
+  }
+  .diff-compare-col.is-this {
+    background: rgba(139,111,71,0.13);
+    border-left: 2px solid var(--accent);
+  }
+  .diff-compare-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .diff-compare-tag .dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .diff-compare-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    line-height: 1.45;
+  }
+  .diff-compare-desc {
+    font-size: 0.85rem;
+    color: var(--ink-mid);
+    line-height: 2;
+  }
+  .diff-compare-note {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    line-height: 1.85;
+  }
+
+  .diff-result {
+    margin: 2.5rem 0;
+    padding: 2rem 2.5rem;
+    border-left: 2px solid var(--accent);
+    background: rgba(139,111,71,0.04);
+  }
+  .diff-result-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .diff-result p {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.75;
+    color: var(--ink);
+  }
+
+  .diff-quote {
+    border-left: 2px solid var(--accent);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+  }
+  .diff-quote p {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .diff-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 2.5rem;
+  }
+  .diff-pill {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    border: 1px solid var(--accent-light);
+    padding: 0.4rem 1.1rem;
+    border-radius: 999px;
+  }
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+  .plan-card {
+    background: var(--paper);
+    padding: 2.5rem 2rem;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .plan-card:hover { background: var(--paper-warm); }
+  .plan-card.featured::after {
+    content: 'おすすめ';
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    border: 1px solid var(--accent-light);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+  }
+  .plan-name {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .plan-price {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+  .plan-period {
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    margin-bottom: 1.25rem;
+  }
+  .plan-desc {
+    font-size: 0.85rem;
+    color: var(--ink-mid);
+    line-height: 1.85;
+  }
+
+  .profile-section { display: flex; gap: 5rem; align-items: flex-start; }
+  .profile-photo {
+    flex-shrink: 0;
+    width: 200px;
+    height: 240px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .profile-name {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+  }
+  .profile-role {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .profile-body {
+    font-size: 0.9rem;
+    color: var(--ink-mid);
+    line-height: 2;
+    margin-bottom: 1.5rem;
+  }
+  .profile-belief {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 8rem 4rem;
+    max-width: 100%;
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .cta-inner { max-width: 560px; margin: 0 auto; }
+  .cta-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    color: var(--paper);
+    margin-bottom: 1.25rem;
+  }
+  .cta-section p {
+    font-size: 0.9rem;
+    color: rgba(245,242,237,0.6);
+    margin-bottom: 3rem;
+    line-height: 2;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 3rem;
+    border: 1px solid rgba(245,242,237,0.3);
+    color: var(--paper);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .cta-btn:hover {
+    background: rgba(245,242,237,0.08);
+    border-color: rgba(245,242,237,0.6);
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    background: var(--ink);
+    border-top: 1px solid rgba(245,242,237,0.1);
+  }
+  footer p {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: rgba(245,242,237,0.35);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 1.5rem; }
+    .hero {
+      min-height: auto;
+      align-items: flex-start;
+      padding: 8.5rem 1.5rem 5rem;
+    }
+    .hero-title { font-size: 2.8rem; }
+    .scroll-hint { display: none; }
+    .persona-grid { grid-template-columns: 1fr; }
+    .diff-compare { grid-template-columns: 1fr; }
+    .plans-grid { grid-template-columns: 1fr; }
+    .profile-section { flex-direction: column; gap: 2rem; }
+    .divider { margin: 0 1.5rem; }
+    .diff-section { padding: 5rem 1.5rem; }
+    .cta-section { padding: 6rem 1.5rem; }
+    footer { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">EMOVEAL</a>
+  <ul class="nav-links">
+    <li><a href="#who">こんな方へ</a></li>
+    <li><a href="#how">セッション</a></li>
+    <li><a href="#plans">プラン</a></li>
+    <li><a href="#profile">プロフィール</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line-deco"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">EMOVEAL</p>
+    <h1 class="hero-title">
+      葛藤と向き合い、<br><em>人生を動かす</em>
+    </h1>
+    <p class="hero-sub">
+      理想があるからこそ、現状への違和感が生まれる。<br>
+      その理想が言葉になった瞬間、感情が解放され——<br>
+      感情が動くから、人生が動き出す。
+    </p>
+    <a href="https://forms.gle/eUHg9wujpLWYsKAs9" target="_blank" rel="noopener noreferrer" class="hero-cta">
+      初回セッションを申し込む
+      <span class="hero-cta-arrow">→</span>
+    </a>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- WHO -->
+<section id="who" class="who-section">
+  <div class="section-inner fade-in">
+    <p class="section-label">こんな方へ</p>
+    <h2>葛藤は、理想を持っている<br>人にしか生まれない。</h2>
+    <p class="who-lead">
+      「悩んでいる」のではなく、「葛藤している」——<br>
+      それは、あなたの中に理想があるということです。
+    </p>
+    <div class="who-quote">
+      <p>理想に生きようとしているからこそ、<br>現状への違和感が生まれる。</p>
+    </div>
+  </div>
+  <div class="persona-grid fade-in">
+    <div class="persona-card">
+      <span class="persona-num">01</span>
+      <p class="persona-text">活躍しているのに、このままでいいのか——という感覚が抜けない</p>
+    </div>
+    <div class="persona-card">
+      <span class="persona-num">02</span>
+      <p class="persona-text">転職したい。でも、何に向かえばいいのかがわからない</p>
+    </div>
+    <div class="persona-card">
+      <span class="persona-num">03</span>
+      <p class="persona-text">もっとやりたいことがある気がする。<br>でも、それが何かがわからない</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- HOW -->
+<section id="how" class="how-section">
+  <div class="section-inner fade-in">
+    <p class="section-label">向き合いのプロセス</p>
+    <h2>葛藤が、<br>推進力に変わる</h2>
+  </div>
+  <div class="step-list fade-in">
+    <div class="step">
+      <span class="step-num">STEP 01</span>
+      <div class="step-body">
+        <h4>葛藤と正面から向き合う</h4>
+        <p>今のモヤモヤをフラットに吐き出す。うまく整理できていなくて大丈夫。</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">STEP 02</span>
+      <div class="step-body">
+        <h4>自己理解を深め、再認識する</h4>
+        <p>人生の歩みをひもとき、価値観・強みを言語化。本人が気づいていなかった自分らしさの輪郭を描き出す。</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">STEP 03</span>
+      <div class="step-body">
+        <h4>本人の中から、言葉にならなかった理想が出てくる</h4>
+        <p>深い自己理解が積み重なった瞬間、描けていなかった理想が自然と浮かび上がる。</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">STEP 04</span>
+      <div class="step-body">
+        <h4>葛藤が推進力に変わる</h4>
+        <p>理想が言葉になった瞬間、次の一歩が自然に見えてくる。葛藤はもはや重荷ではなく、前へ進むためのエネルギーになる。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFF -->
+<div class="diff-section">
+  <div class="diff-inner fade-in">
+    <p class="section-label">セッションの特徴</p>
+    <h2>自己理解の深さが、<br>意思決定の質を変える</h2>
+
+    <p class="diff-body">
+      コーチングとは本来、<strong>本人の中に答えがあることを前提に、問いによって思考を引き出す</strong>コミュニケーション手法のことを指します。
+      単発の行動促進や思考整理には有効だが、転職・独立・人生の転換点といった重要な意思決定においては、それだけでは納得感が生まれにくい。
+    </p>
+    <p class="diff-body">
+      なぜか。それは、<strong>答えの土台となる自己理解が整わないまま、答えを引き出そうとしているから</strong>。
+    </p>
+
+    <div class="diff-compare">
+      <div class="diff-compare-col is-this">
+        <p class="diff-compare-tag">一般的なコーチング</p>
+        <p class="diff-compare-title">問いで、答えを引き出す</p>
+        <p class="diff-compare-desc">
+          「何がしたいですか？」「どうなりたいですか？」——丁寧な問いかけで、本人の思考を言語化していく。即効性があり、短期的な行動変容に強い。
+        </p>
+        <p class="diff-compare-note">
+          ただし、自分の特性・動機の構造が見えていない状態では、出てきた「答え」への納得感が薄くなりやすい。重要な意思決定の場面で、迷いが残る。
+        </p>
+      </div>
+      <div class="diff-compare-col">
+        <p class="diff-compare-tag"><span class="dot"></span>このセッション</p>
+        <p class="diff-compare-title">自己理解を土台に、<br>答えを見つける</p>
+        <p class="diff-compare-desc">
+          コーチングの問いを活かしながら、もう一歩踏み込む。幼少期・家族・転機・失敗——人生の歩みをひもとき、本人も言語化できていなかった特性・動機の構造を体系的に整理する。
+        </p>
+        <p class="diff-compare-note">
+          深い自己理解の上から出てきた意思決定だから、納得感が違う。その後の継続的な伴走も、質がまったく変わる。
+        </p>
+      </div>
+    </div>
+
+    <div class="diff-result">
+      <p class="diff-result-label">Result</p>
+      <p>自分の特性と本質的なwillを体系的に理解した人間は、<br>必ず自分の中に課題を見つけ、前へ進める。</p>
+    </div>
+
+    <div class="diff-quote">
+      <p>「そう、それが言いたかったんです」——<br>この瞬間が、セッションの中で<br>生み出されていく。</p>
+    </div>
+
+    <p class="diff-body">
+      キャリアコーチング市場の前線で、3,000名以上と向き合ってきた実践経験。<br>
+      担当者が変わらず、<strong>最初から最後まで同じ一人が伴走します。</strong>
+    </p>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PLANS -->
+<section id="plans">
+  <div class="section-inner fade-in">
+    <p class="section-label">プラン</p>
+    <h2>あなたの状態に<br>合わせて</h2>
+  </div>
+  <div class="plans-grid fade-in">
+    <div class="plan-card">
+      <p class="plan-name">初回セッション</p>
+      <p class="plan-price">¥8,000</p>
+      <p class="plan-period">1回 / 60〜90分</p>
+      <p class="plan-desc">まず体験したい方へ。現在の葛藤・モヤモヤを深く整理します。</p>
+    </div>
+    <div class="plan-card">
+      <p class="plan-name">単発セッション</p>
+      <p class="plan-price">¥20,000</p>
+      <p class="plan-period">1回 / 60〜90分</p>
+      <p class="plan-desc">テーマを持ち込み、1回ごとに深掘りしたい方へ。</p>
+    </div>
+    <div class="plan-card featured">
+      <p class="plan-name">自己分析プラン</p>
+      <p class="plan-price">¥250,000</p>
+      <p class="plan-period">2ヶ月 / 4回セッション＋ワーク付き</p>
+      <p class="plan-desc">短期集中で自分の核心と前進する方向を言語化しきる。自己理解を深め、理想と課題を明確にする集中プログラム。</p>
+    </div>
+    <div class="plan-card">
+      <p class="plan-name">定期パッケージ</p>
+      <p class="plan-price">¥150,000</p>
+      <p class="plan-period">6ヶ月 / 月1回＋チャットサポート</p>
+      <p class="plan-desc">継続的な対話でサポートします。</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROFILE -->
+<section id="profile">
+  <div class="section-inner fade-in" style="max-width: 100%">
+    <p class="section-label">プロフィール</p>
+    <div class="profile-section">
+      <div class="profile-photo">
+        <img src="10023_川口遼_3（カウンセラー）.jpg" alt="川口遼">
+      </div>
+      <div>
+        <p class="profile-name">川口 遼</p>
+        <p class="profile-role">EMOVEAL / 対人支援・キャリアコーチング</p>
+        <p class="profile-body">
+          レバレジーズ株式会社にてファーストキャリアをスタート。レバテック事業部で法人営業・チームリーダーを経験し、全社ベストセールスにノミネート。その後、日本のキャリアコーチングのパイオニアであるポジウィル株式会社に創業期よりジョイン。3,000名以上のキャリア支援に携わり、10名以上の組織のマネージャーも経験。現在は教育系スタートアップにてキャリア領域の新規事業開発に従事。
+        </p>
+        <p class="profile-belief">
+          才能で人生は決まらない。自分と本気で向き合い続け、<br>理想を信じ前進してきた——その歩みが、このサービスになっています。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section" id="contact">
+  <div class="cta-inner fade-in">
+    <h2>気になったら、<br><em style="font-style:italic;">まず一度話してみてください。</em></h2>
+    <p>初回セッション¥8,000から。<br>うまく整理できていなくても大丈夫です。</p>
+    <a href="https://forms.gle/eUHg9wujpLWYsKAs9" target="_blank" rel="noopener noreferrer" class="cta-btn">
+      申し込む →
+    </a>
+  </div>
+</div>
+
+<footer>
+  <p>© EMOVEAL</p>
+  <p>お問い合わせ</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
