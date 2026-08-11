@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INNEAL — 葛藤と向き合い、人生を動かす</title>
+<title>COWALK — 葛藤と向き合い、人生を動かす</title>
+<meta name="description" content="COWALK（コーウォーク）は、葛藤と向き合い、本当の自分の理想を見出すための対人支援・キャリアコーチングです。3,000名以上の支援経験をもとに、一人ひとりに伴走します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
@@ -577,17 +578,93 @@
     .cta-section { padding: 6rem 1.5rem; }
     footer { padding: 1.5rem; }
   }
+
+  .scope-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 3rem 0;
+  }
+  .scope-col {
+    background: var(--paper);
+    padding: 2.25rem 2rem;
+  }
+  .scope-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .scope-tag .dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .scope-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    line-height: 1.45;
+  }
+  .scope-desc {
+    font-size: 0.85rem;
+    color: var(--ink-mid);
+    line-height: 2;
+  }
+  .diff-sub {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 3rem 0 1.5rem;
+  }
+  .philosophy { margin-top: 3.5rem; }
+  .philosophy-block {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .philosophy-block:last-child { border-bottom: 1px solid var(--border); }
+  .philosophy-block h4 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.55;
+    margin-bottom: 0.9rem;
+    color: var(--ink);
+  }
+  .philosophy-block p {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 2;
+  }
+  .philosophy-block p + p { margin-top: 0.9rem; }
+  .profile-block { margin-bottom: 3rem; }
+  @media (max-width: 768px) {
+    .scope-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">INNEAL</a>
+  <a href="#" class="nav-logo">COWALK</a>
   <ul class="nav-links">
     <li><a href="#who">こんな方へ</a></li>
-    <li><a href="#how">セッション</a></li>
+    <li><a href="#how">向き合いのプロセス</a></li>
+    <li><a href="#feature">COWALKの特徴</a></li>
     <li><a href="#plans">プラン</a></li>
-    <li><a href="#profile">プロフィール</a></li>
+    <li><a href="#profile">私について</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
   </ul>
 </nav>
@@ -597,18 +674,18 @@
   <div class="hero-bg"></div>
   <div class="hero-line-deco"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">INNEAL</p>
+    <p class="hero-eyebrow">COWALK</p>
     <h1 class="hero-title">
       葛藤と向き合い、<br><em>人生を動かす</em>
     </h1>
     <p class="hero-sub">
       理想があるからこそ、現状への違和感が生まれる。<br>
-      ただ上を目指すのではなく、自分の核心へと向かう——<br>
-      自分と向き合う姿勢が、人生を動かす力になる。
+      本当の理想に向かうには、自分の葛藤に向き合えるか——<br>
+      向き合いたい強さがある人の、伴走者になる。
     </p>
     <a href="https://forms.gle/eUHg9wujpLWYsKAs9" target="_blank" rel="noopener noreferrer" class="hero-cta">
       初回セッションを申し込む
-      <span class="hero-cta-arrow">→</span>
+      <span class="hero-cta-arrow">&rarr;</span>
     </a>
   </div>
   <div class="scroll-hint">
@@ -688,39 +765,49 @@
   </div>
 </section>
 
-<!-- DIFF -->
-<div class="diff-section">
+<!-- FEATURE -->
+<div class="diff-section" id="feature">
   <div class="diff-inner fade-in">
-    <p class="section-label">セッションの特徴</p>
-    <h2>自己理解の深さが、<br>意思決定の質を変える</h2>
+    <p class="section-label">COWALKの特徴</p>
+    <h2>理想には、<br>自分だけのwhyがいる</h2>
 
     <p class="diff-body">
-      コーチングとは本来、<strong>本人の中に答えがあることを前提に、問いによって思考を引き出す</strong>コミュニケーション手法のことを指します。
-      単発の行動促進や思考整理には有効だが、転職・独立・人生の転換点といった重要な意思決定においては、それだけでは納得感が生まれにくい。
+      「こうなりたい」は、意外と簡単に出てくる。
     </p>
     <p class="diff-body">
-      なぜか。それは、<strong>答えの土台となる自己理解が整わないまま、答えを引き出そうとしているから</strong>。
+      でも、それを本気で選び取り、進み続けられるかどうかを分けるのは、<strong>「なぜ自分はそれをやりたいのか」という、腹の底から納得できるwhy</strong>があるかどうか。
     </p>
 
-    <div class="diff-compare">
-      <div class="diff-compare-col is-this">
-        <p class="diff-compare-tag">一般的なコーチング</p>
-        <p class="diff-compare-title">問いで、答えを引き出す</p>
-        <p class="diff-compare-desc">
-          「何がしたいですか？」「どうなりたいですか？」——丁寧な問いかけで、本人の思考を言語化していく。即効性があり、短期的な行動変容に強い。
-        </p>
-        <p class="diff-compare-note">
-          ただし、自分の特性・動機の構造が見えていない状態では、出てきた「答え」への納得感が薄くなりやすい。重要な意思決定の場面で、迷いが残る。
+    <div class="diff-quote">
+      <p>whyのない理想は、揺らぐ。<br>whyのある理想は、走らせる。</p>
+    </div>
+
+    <p class="diff-sub">そのwhyは、時間をさかのぼった先にある</p>
+    <p class="diff-body">
+      いまあなたが抱えている葛藤は、突然生まれたものではありません。これまでの歩み——幼少期、家族、選んできたこと、諦めてきたこと、うまくいかなかったこと——その全部が積み重なって、いまの違和感を形づくっている。
+    </p>
+    <p class="diff-body">
+      だから、現在だけを見つめても、未来だけを描いても、腹落ちするwhyにはたどり着けない。
+    </p>
+
+    <p class="diff-sub">COWALKが扱う、領域の広さと深さ</p>
+    <p class="diff-body">
+      いまの葛藤を入り口に、それをつくってきた自分のこれまでを深く扱う。そこを通った先に見出す理想だからこそ、納得感がまったく違う。
+    </p>
+
+    <div class="scope-grid">
+      <div class="scope-col">
+        <p class="scope-tag"><span class="dot"></span>時間軸の広さ</p>
+        <p class="scope-title">現在 &rarr; これまで &rarr;<br>これから</p>
+        <p class="scope-desc">
+          いまの葛藤、それを形づくってきた人生の歩み、そしてこれから向かう理想。その全部を一続きのものとして扱います。
         </p>
       </div>
-      <div class="diff-compare-col">
-        <p class="diff-compare-tag"><span class="dot"></span>このセッション</p>
-        <p class="diff-compare-title">自己理解を土台に、<br>答えを見つける</p>
-        <p class="diff-compare-desc">
-          コーチングの問いを活かしながら、もう一歩踏み込む。幼少期・家族・転機・失敗——人生の歩みをひもとき、本人も言語化できていなかった特性・動機の構造を体系的に整理する。
-        </p>
-        <p class="diff-compare-note">
-          深い自己理解の上から出てきた意思決定だから、納得感が違う。その後の継続的な伴走も、質がまったく変わる。
+      <div class="scope-col">
+        <p class="scope-tag"><span class="dot"></span>向き合いの深さ</p>
+        <p class="scope-title">整理された言葉の、<br>その奥まで</p>
+        <p class="scope-desc">
+          すでに言語化できていることだけでなく、まだ言葉になっていない感情や葛藤にまで踏み込みます。
         </p>
       </div>
     </div>
@@ -735,8 +822,11 @@
     </div>
 
     <p class="diff-body">
-      キャリアコーチング市場の前線で、3,000名以上と向き合ってきた実践経験。<br>
+      キャリアコーチング市場の前線で、4年間・3,000名以上と向き合ってきた実践経験。<br>
       担当者が変わらず、<strong>最初から最後まで同じ一人が伴走します。</strong>
+    </p>
+    <p class="diff-body">
+      加えて、<strong>相手の言葉を座標として読み、本人が見えていない内側の地図を積極的に描く「編集者」スタイル。</strong>仮説を積極的にぶつけることで、本人だけでは辿り着けない本質に届けます。
     </p>
 
   </div>
@@ -753,29 +843,30 @@
   <div class="plans-grid fade-in">
     <div class="plan-card">
       <p class="plan-name">初回セッション</p>
-      <p class="plan-price">¥8,000</p>
+      <p class="plan-price">&yen;8,000</p>
       <p class="plan-period">1回 / 60〜90分</p>
-      <p class="plan-desc">まず体験したい方へ。現在の葛藤・モヤモヤを深く整理します。</p>
+      <p class="plan-desc">まず一度話してみたい方へ。本質的な悩みを整理し、課題の方向性が見えている状態を目指します。</p>
+    </div>
+    <div class="plan-card featured">
+      <p class="plan-name">葛藤に向き合うプラン</p>
+      <p class="plan-price">&yen;250,000</p>
+      <p class="plan-period">3〜4回</p>
+      <p class="plan-desc">自己理解を主軸とした向き合いを通じて、本質的な悩みと自分の理想に向き合い、前に進める状態へ。</p>
+    </div>
+    <div class="plan-card">
+      <p class="plan-name">転職伴走プラン</p>
+      <p class="plan-price">&yen;250,000</p>
+      <p class="plan-period">4回</p>
+      <p class="plan-desc">自分の人生としての現時点の理想に向き合い、キャリア軸まで整理しきる。納得感を持って動ける状態へ。</p>
     </div>
     <div class="plan-card">
       <p class="plan-name">単発セッション</p>
-      <p class="plan-price">¥20,000</p>
+      <p class="plan-price">&yen;20,000</p>
       <p class="plan-period">1回 / 60〜90分</p>
       <p class="plan-desc">テーマを持ち込み、1回ごとに深掘りしたい方へ。</p>
     </div>
-    <div class="plan-card featured">
-      <p class="plan-name">自己分析プラン</p>
-      <p class="plan-price">¥250,000</p>
-      <p class="plan-period">2ヶ月 / 4回セッション＋ワーク付き</p>
-      <p class="plan-desc">短期集中で自分の核心と前進する方向を言語化しきる。自己理解を深め、理想と課題を明確にする集中プログラム。</p>
-    </div>
-    <div class="plan-card">
-      <p class="plan-name">定期パッケージ</p>
-      <p class="plan-price">¥150,000</p>
-      <p class="plan-period">6ヶ月 / 月1回＋チャットサポート</p>
-      <p class="plan-desc">継続的な対話でサポートします。</p>
-    </div>
   </div>
+  <p class="plan-period fade-in" style="margin-top:1.5rem">※ クライアントの状況・ニーズに応じてカスタマイズも可能です。</p>
 </section>
 
 <hr class="divider">
@@ -783,20 +874,40 @@
 <!-- PROFILE -->
 <section id="profile">
   <div class="section-inner fade-in" style="max-width: 100%">
-    <p class="section-label">プロフィール</p>
-    <div class="profile-section">
+    <p class="section-label">私について</p>
+    <div class="profile-section profile-block">
       <div class="profile-photo">
-        <img src="10023_川口遼_3（カウンセラー）.jpg" alt="川口遼">
+        <img src="profile.jpg" alt="川口遼">
       </div>
       <div>
         <p class="profile-name">川口 遼</p>
-        <p class="profile-role">INNEAL / 対人支援・キャリアコーチング</p>
+        <p class="profile-role">COWALK / 対人支援・キャリアコーチング</p>
         <p class="profile-body">
           レバレジーズ株式会社にてファーストキャリアをスタート。レバテック事業部で法人営業・チームリーダーを経験し、全社ベストセールスにノミネート。その後、日本のキャリアコーチングのパイオニアであるポジウィル株式会社に創業期よりジョイン。3,000名以上のキャリア支援に携わり、10名以上の組織のマネージャーも経験。現在は教育系スタートアップにてキャリア領域の新規事業開発に従事。
         </p>
-        <p class="profile-belief">
-          才能で人生は決まらない。自分と本気で向き合い続け、<br>理想を信じ前進してきた——その歩みが、このサービスになっています。
-        </p>
+      </div>
+    </div>
+
+    <div class="section-inner philosophy">
+      <p class="section-label">私の考え・哲学</p>
+
+      <div class="philosophy-block">
+        <h4>キャリアコーチングという市場が、<br>まだ存在しなかった頃から</h4>
+        <p>パイオニアであるポジウィルに創業期からジョインし、目の前の人と向き合いながら、事業と市場そのものをつくってきました。コロナ明け以降、「本当に自分はどう生きたいのか」と悩む人が急速に増えていた時期。だからこそ、とにかく顧客と向き合い続けました。</p>
+      </div>
+
+      <div class="philosophy-block">
+        <h4>毎日6人。初めましての人の悩みから、<br>その人の深い人生まで。</h4>
+        <p>転職のキャリアアドバイザーとは違い、初対面の相手の悩みから、その人の人生の深いところまで向き合い続ける。その中で見えてきたのは、本当に大事なのは<strong>悩みの奥にある、本当の葛藤に向き合えるか</strong>だということでした。</p>
+        <p>人生を本質的に変えるような変化は、自分の強い理想・欲求に気づくことから始まる。そしてそれは、ドロっとした自分の本音の感情・葛藤に向き合うことで見出せることが多い。</p>
+        <p>ただ、それに向き合うことは簡単なことではないからこそ、同じ方向を向きながら、ぐっと深くまで入り込んでくれる存在がいること——それが、非常に大きな役割を果たします。</p>
+      </div>
+
+      <div class="philosophy-block">
+        <h4>「COWALK」という名前に込めた思い</h4>
+        <p>人生には、良い時もあれば悪い時もある。</p>
+        <p>それでも目の前の葛藤に向き合い、本当の自分の理想に気づいて走り出す。その連続が、小さく、そして大きく、自分の人生を彩っていく。</p>
+        <p>だからこそ、必要なタイミングで必要な向き合いを、共にする。そんな存在でありたいという想いを、CO（共に）WALK（あるく）という名前に込めました。</p>
       </div>
     </div>
   </div>
@@ -806,15 +917,15 @@
 <div class="cta-section" id="contact">
   <div class="cta-inner fade-in">
     <h2>気になったら、<br><em style="font-style:italic;">まず一度話してみてください。</em></h2>
-    <p>初回セッション¥8,000から。<br>うまく整理できていなくても大丈夫です。</p>
+    <p>初回セッション&yen;8,000から。<br>うまく整理できていなくても大丈夫です。</p>
     <a href="https://forms.gle/eUHg9wujpLWYsKAs9" target="_blank" rel="noopener noreferrer" class="cta-btn">
-      申し込む →
+      申し込む &rarr;
     </a>
   </div>
 </div>
 
 <footer>
-  <p>© INNEAL</p>
+  <p>&copy; COWALK</p>
   <p>お問い合わせ</p>
 </footer>
 
