@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>COWALK — 葛藤と向き合い、人生を動かす</title>
 <meta name="description" content="COWALK（コーウォーク）は、葛藤と向き合い、本当の自分の理想を見出すための対人支援・キャリアコーチングです。3,000名以上の支援経験をもとに、一人ひとりに伴走します。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpath%20d%3D%22M%2078.19%2030.99%20A%2034.00%2034.00%200%201%200%2078.19%2069.01%22%20fill%3D%22none%22%20stroke%3D%22%231a1814%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M%2076.41%2038.26%20A%2021.00%2021.00%200%201%200%2076.41%2061.74%22%20fill%3D%22none%22%20stroke%3D%22%238b6f47%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
@@ -48,12 +49,20 @@
     border-bottom: 1px solid var(--border);
   }
   .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
     font-family: var(--serif);
     font-size: 1.4rem;
     font-weight: 500;
     letter-spacing: 0.2em;
     color: var(--ink);
     text-decoration: none;
+  }
+  .nav-logo-mark {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex-shrink: 0;
   }
   .nav-links {
     display: flex;
@@ -658,7 +667,13 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">COWALK</a>
+  <a href="#" class="nav-logo">
+    <svg class="nav-logo-mark" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M 78.19 30.99 A 34 34 0 1 0 78.19 69.01" fill="none" stroke="#1a1814" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 76.41 38.26 A 21 21 0 1 0 76.41 61.74" fill="none" stroke="#8b6f47" stroke-width="9" stroke-linecap="round"/>
+    </svg>
+    COWALK
+  </a>
   <ul class="nav-links">
     <li><a href="#who">こんな方へ</a></li>
     <li><a href="#how">向き合いのプロセス</a></li>
@@ -900,6 +915,7 @@
         <p>人生には、良い時もあれば悪い時もある。</p>
         <p>それでも目の前の葛藤に向き合い、本当の自分の理想に気づいて走り出す。その連続が、小さく、そして大きく、自分の人生を彩っていく。</p>
         <p>だからこそ、必要なタイミングで必要な向き合いを、共にする。そんな存在でありたいという想いを、CO（共に）WALK（あるく）という名前に込めました。</p>
+        <p>ロゴの二重の弧も、隣り合いながら共に歩んでいく、この関係性をそのまま形にしています。</p>
       </div>
     </div>
   </div>
