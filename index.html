@@ -547,6 +547,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
     padding: 2rem 4rem;
     background: var(--ink);
     border-top: 1px solid rgba(245,242,237,0.1);
@@ -556,6 +558,18 @@
     letter-spacing: 0.1em;
     color: rgba(245,242,237,0.35);
   }
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+  }
+  .footer-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: rgba(245,242,237,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(245,242,237,0.75); }
 
   .fade-in {
     opacity: 0;
@@ -680,7 +694,7 @@
     <li><a href="#feature">COWALKの特徴</a></li>
     <li><a href="#plans">プラン</a></li>
     <li><a href="#profile">私について</a></li>
-    <li><a href="#contact">お問い合わせ</a></li>
+    <li><a href="https://forms.gle/hUKG42wgo8MBAnYDA" target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
   </ul>
 </nav>
 
@@ -934,7 +948,10 @@
 
 <footer>
   <p>&copy; COWALK</p>
-  <p>お問い合わせ</p>
+  <div class="footer-links">
+    <a href="https://forms.gle/hUKG42wgo8MBAnYDA" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </div>
 </footer>
 
 <script>
