@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー | COWALK</title>
+<meta name="description" content="COWALK（コーウォーク）のプライバシーポリシーです。取得する情報、利用目的、第三者提供、外部サービスの利用などについて定めています。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpath%20d%3D%22M%2078.19%2030.99%20A%2034.00%2034.00%200%201%200%2078.19%2069.01%22%20fill%3D%22none%22%20stroke%3D%22%231a1814%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M%2076.41%2038.26%20A%2021.00%2021.00%200%201%200%2076.41%2061.74%22%20fill%3D%22none%22%20stroke%3D%22%238b6f47%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1814;
+    --ink-mid: #4a4540;
+    --ink-light: #8a8480;
+    --paper: #f5f2ed;
+    --paper-warm: #ede9e2;
+    --accent: #8b6f47;
+    --accent-light: #c4a882;
+    --border: rgba(26,24,20,0.12);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Noto Sans JP', sans-serif;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background: rgba(245,242,237,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo-mark {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex-shrink: 0;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 11rem 2rem 8rem;
+  }
+  .legal-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .legal-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.25rem;
+    color: var(--ink);
+  }
+  .legal-updated {
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    margin-bottom: 3rem;
+  }
+  .legal-lead {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    line-height: 2;
+    margin-bottom: 3.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .legal-block {
+    padding: 2.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .legal-block:last-of-type { border-bottom: none; }
+  .legal-block h2 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+  .legal-block p {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 2;
+  }
+  .legal-block p + p { margin-top: 0.9rem; }
+  .legal-block ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+  .legal-block ul li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 2;
+  }
+  .legal-block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.85em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-light);
+  }
+  .legal-block ul li + li { margin-top: 0.3rem; }
+  .legal-block a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal-contact {
+    margin-top: 3rem;
+    padding: 2rem 2.25rem;
+    border-left: 2px solid var(--accent);
+    background: rgba(139,111,71,0.04);
+  }
+  .legal-contact p {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 2;
+  }
+  .legal-contact p + p { margin-top: 0.5rem; }
+  .legal-contact a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--ink); }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem 4rem;
+    background: var(--ink);
+    border-top: 1px solid rgba(245,242,237,0.1);
+  }
+  footer p {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: rgba(245,242,237,0.35);
+  }
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+  }
+  .footer-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: rgba(245,242,237,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(245,242,237,0.75); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .nav-links { display: none; }
+    main { padding: 8.5rem 1.5rem 5rem; }
+    footer { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg class="nav-logo-mark" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M 78.19 30.99 A 34 34 0 1 0 78.19 69.01" fill="none" stroke="#1a1814" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 76.41 38.26 A 21 21 0 1 0 76.41 61.74" fill="none" stroke="#8b6f47" stroke-width="9" stroke-linecap="round"/>
+    </svg>
+    COWALK
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">サイトに戻る</a></li>
+  </ul>
+</nav>
+
+<main>
+  <p class="legal-eyebrow">Privacy Policy</p>
+  <h1>プライバシーポリシー</h1>
+  <p class="legal-updated">最終改定日：[YYYY年M月D日]</p>
+
+  <p class="legal-lead">
+    COWALK（以下「当方」といいます）は、お客様の個人情報の重要性を認識し、個人情報の保護に関する法律その他関連法令を遵守し、以下のとおりプライバシーポリシー（以下「本ポリシー」といいます）を定めます。
+  </p>
+
+  <div class="legal-block">
+    <h2>1. 取得する情報</h2>
+    <p>当方は、お問い合わせフォーム（Google フォーム）およびセッションの申込み・実施を通じて、以下の情報を取得することがあります。</p>
+    <ul>
+      <li>氏名</li>
+      <li>メールアドレス</li>
+      <li>電話番号</li>
+      <li>お問い合わせ・お申込み内容、ご相談内容</li>
+      <li>セッション実施中に共有いただいた個人的な背景・経歴等の情報</li>
+      <li>決済に関する情報（決済代行サービスを利用する場合、カード情報自体は当方では保持しません）</li>
+    </ul>
+  </div>
+
+  <div class="legal-block">
+    <h2>2. 利用目的</h2>
+    <p>取得した情報は、以下の目的の範囲内で利用します。</p>
+    <ul>
+      <li>お問い合わせ・お申込みへの対応、セッションの日程調整・実施</li>
+      <li>コーチングサービスの提供および品質向上のための記録・分析</li>
+      <li>料金請求・支払いに関する連絡</li>
+      <li>サービスに関する重要なお知らせの送付</li>
+      <li>ご本人の同意を得たうえでの事例紹介・マーケティング（公開の範囲・形式は、同意取得時に個別にご相談のうえ決定します）</li>
+    </ul>
+  </div>
+
+  <div class="legal-block">
+    <h2>3. 第三者提供</h2>
+    <p>当方は、以下の場合を除き、取得した個人情報を本人の同意なく第三者に提供することはありません。</p>
+    <ul>
+      <li>法令に基づき開示が求められる場合</li>
+      <li>人の生命・身体・財産の保護のために必要があり、本人の同意を得ることが困難な場合</li>
+    </ul>
+  </div>
+
+  <div class="legal-block">
+    <h2>4. 外部サービスの利用</h2>
+    <p>当方は、お申込み・お問い合わせの受付にGoogleフォームを利用しています。フォームを通じて入力された情報は、Google社のプライバシーポリシーにも従って取り扱われます。詳細はGoogle社の規定をご確認ください。</p>
+  </div>
+
+  <div class="legal-block">
+    <h2>5. 情報の保管・管理</h2>
+    <p>取得した個人情報は、不正アクセス・紛失・破壊・改ざん・漏えい等を防止するため、合理的な安全管理措置を講じたうえで保管します。利用目的の達成に必要な期間を超えて保有する必要がなくなった情報は、適切な方法で削除・破棄します。</p>
+  </div>
+
+  <div class="legal-block">
+    <h2>6. 開示・訂正・削除等のご請求</h2>
+    <p>ご本人からの個人情報の開示・訂正・利用停止・削除等のご請求があった場合、ご本人確認のうえ、法令に従い速やかに対応します。ご請求は下記のお問い合わせ窓口までご連絡ください。</p>
+  </div>
+
+  <div class="legal-block">
+    <h2>7. Cookie等の利用について</h2>
+    <p>本サイトでは、現時点でアクセス解析等を目的としたCookieの取得は行っておりません。今後導入する場合は、本ポリシーを改定のうえお知らせします。</p>
+  </div>
+
+  <div class="legal-block">
+    <h2>8. 本ポリシーの改定</h2>
+    <p>当方は、必要に応じて本ポリシーの内容を予告なく改定することがあります。改定後のプライバシーポリシーは、本ページに掲載した時点から効力を生じるものとします。</p>
+  </div>
+
+  <div class="legal-block">
+    <h2>お問い合わせ窓口</h2>
+    <div class="legal-contact">
+      <p>COWALK　運営者：川口 遼</p>
+      <p>メールアドレス：<a href="mailto:cowalk.info@gmail.com">cowalk.info@gmail.com</a></p>
+      <p>お問い合わせフォーム：<a href="https://forms.gle/hUKG42wgo8MBAnYDA" target="_blank" rel="noopener noreferrer">こちら</a></p>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-link">&larr; サイトに戻る</a>
+</main>
+
+<footer>
+  <p>&copy; COWALK</p>
+  <div class="footer-links">
+    <a href="https://forms.gle/hUKG42wgo8MBAnYDA" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </div>
+</footer>
+
+</body>
+</html>
